@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "291177236667",
+    "firebase_url": "https://nowshopping-493ca-default-rtdb.firebaseio.com",
+    "project_id": "nowshopping-493ca",
+    "storage_bucket": "nowshopping-493ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291177236667:android:0221c5a9d2c1a88cf6419e",
+        "android_client_info": {
+          "package_name": "onelink.ning.ning_web"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVUVJRhoxy9YqlpbGoysrO_E5fA1H0eQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
