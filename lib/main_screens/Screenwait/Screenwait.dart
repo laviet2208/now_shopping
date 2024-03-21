@@ -80,9 +80,9 @@ class _ScreenwaitState extends State<Screenwait> {
             Container(height: 20,),
 
             Container(
-              height: DataListType.listType.length * (MediaQuery.of(context).size.height/2.5 + 20),
+              height: 3 * (MediaQuery.of(context).size.height/2.5 + 20),
               child: ListView.builder(
-                itemCount: DataListType.listType.length,
+                itemCount: 3,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Padding(
