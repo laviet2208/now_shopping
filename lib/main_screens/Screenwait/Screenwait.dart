@@ -23,6 +23,65 @@ class Screenwait extends StatefulWidget {
 }
 
 class _ScreenwaitState extends State<Screenwait> {
+  List<String> adsList = [];
+  List<Product> featuredList = [];
+  List<Product> manfashionList = [];
+  List<Product> womanfashionList = [];
+  List<Product> computerList = [];
+  List<List<Product>> product_list = [];
+
+  void getADSdata() {
+    final reference = FirebaseDatabase.instance.reference();
+    reference.child("ads").onValue.listen((event) {
+      adsList.clear();
+      final dynamic product = event.snapshot.value;
+      print(product.toString());
+      setState(() {
+        adsList.add(product[0].toString());
+        adsList.add(product[1].toString());
+        adsList.add(product[2].toString());
+      });
+    });
+  }
+
+  void getproductData() {
+    final reference = FirebaseDatabase.instance.reference();
+    reference.child("product").limitToFirst(20).once().then((DatabaseEvent event) {
+      final dynamic product = event.snapshot.value;
+      featuredList.clear();
+      manfashionList.clear();
+      womanfashionList.clear();
+      computerList.clear();
+      product.forEach((key, value) {
+        Product setPro = Product.fromJson(value);
+        featuredList.add(setPro);
+        if (setPro.type[0] == 1) {
+          product_list[0].add(setPro);
+        }
+        if (setPro.type[0] == 2) {
+          product_list[1].add(setPro);
+        }
+        if (setPro.type[0] == 3) {
+          product_list[2].add(setPro);
+        }
+      });
+      setState(() {
+
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    product_list.add(manfashionList);
+    product_list.add(womanfashionList);
+    product_list.add(computerList);
+    getADSdata();
+    getproductData();
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -41,7 +100,7 @@ class _ScreenwaitState extends State<Screenwait> {
 
             Padding(
               padding: EdgeInsets.only(left: 15, right: 15),
-              child: TopAds(),
+              child: TopAds(adsList: adsList,),
             ),
 
             Container(height: 10,),
@@ -74,24 +133,22 @@ class _ScreenwaitState extends State<Screenwait> {
 
             Padding(
               padding: EdgeInsets.only(left: 0, right: 0),
-              child: ProductDirectoryType1(title: 'featured'),
+              child: ProductDirectoryType1(title: 'featured', productList: featuredList,),
             ),
 
             Container(height: 20,),
 
-            Container(
-              height: 3 * (MediaQuery.of(context).size.height/2.5 + 20),
-              child: ListView.builder(
-                itemCount: 3,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(bottom: 20),
-                    child: ProductDirectoryType2(dataType: DataListType.listType[index]),
-                  );
-                },
-              ),
-            ),
+            Container(height: 20,),
+
+            ProductDirectoryType2(dataType: DataListType.listType[0], productList: product_list[0],),
+
+            Container(height: 20,),
+
+            ProductDirectoryType2(dataType: DataListType.listType[1], productList: product_list[1],),
+
+            Container(height: 20,),
+
+            ProductDirectoryType2(dataType: DataListType.listType[2], productList: product_list[2],),
 
             Container(height: 20,),
 

@@ -240,6 +240,7 @@ class _settingMobiState extends State<settingMobi> {
             child: GestureDetector(
               onTap: () async {
                 await _auth.signOut();
+                currentAccount.id = '';
                 toastMessage("you delete account request will be sent, you can wait 6-7 days");
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstLoad()));
               },
@@ -773,6 +774,7 @@ class _settingMobiState extends State<settingMobi> {
             child: GestureDetector(
               onTap: () async {
                 await _auth.signOut();
+                currentAccount.id = '';
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FirstLoad()),);
               },
               child: Container(

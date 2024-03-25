@@ -4,6 +4,9 @@ import 'package:ning_web/main_screens/MainmenuScreen/Danh%20m%E1%BB%A5c%20lo%E1%
 import 'package:ning_web/main_screens/MainmenuScreen/Data%20lo%E1%BA%A1i%20s%E1%BA%A3n%20ph%E1%BA%A9m.dart';
 import 'package:ning_web/main_screens/MainmenuScreen/Item%20lo%E1%BA%A1i%20s%E1%BA%A3n%20ph%E1%BA%A9m.dart';
 import 'package:ning_web/main_screens/MainmenuScreen/Qu%E1%BA%A3ng%20c%C3%A1o%20%C4%91%E1%BA%A7u%20danh%20s%C3%A1ch.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+import '../../General/Product/Product.dart';
 
 
 class mainmenuTab extends StatefulWidget {
@@ -14,12 +17,69 @@ class mainmenuTab extends StatefulWidget {
 }
 
 class _mainmenuTabState extends State<mainmenuTab> {
+  List<String> adsList = [];
+  List<Product> featuredList = [];
+  List<Product> manfashionList = [];
+  List<Product> womanfashionList = [];
+  List<Product> computerList = [];
+  List<List<Product>> product_list = [];
+
+  void getADSdata() {
+    final reference = FirebaseDatabase.instance.reference();
+    reference.child("ads").once().then((DatabaseEvent event) {
+      adsList.clear();
+      final dynamic product = event.snapshot.value;
+      print(product.toString());
+      setState(() {
+        adsList.add(product[0].toString());
+        adsList.add(product[1].toString());
+        adsList.add(product[2].toString());
+      });
+    });
+  }
+
+  void getproductData() {
+    final reference = FirebaseDatabase.instance.reference();
+    reference.child("product").limitToFirst(10).once().then((DatabaseEvent event) {
+      final dynamic product = event.snapshot.value;
+      featuredList.clear();
+      manfashionList.clear();
+      womanfashionList.clear();
+      computerList.clear();
+      product.forEach((key, value) {
+        Product setPro = Product.fromJson(value);
+        featuredList.add(setPro);
+        if (setPro.type[0] == 1) {
+          product_list[0].add(setPro);
+        }
+        if (setPro.type[0] == 2) {
+          product_list[1].add(setPro);
+        }
+        if (setPro.type[0] == 3) {
+          product_list[2].add(setPro);
+        }
+      });
+      setState(() {
+
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    product_list.add(manfashionList);
+    product_list.add(womanfashionList);
+    product_list.add(computerList);
+    getADSdata();
+    getproductData();
+  }
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double baseWidth = 1920;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
 
     return Scaffold(
       body: Container(
@@ -33,7 +93,7 @@ class _mainmenuTabState extends State<mainmenuTab> {
 
             Padding(
               padding: EdgeInsets.only(left: 15, right: 15),
-              child: TopAds(),
+              child: TopAds(adsList: adsList,),
             ),
 
             Container(height: 10,),
@@ -66,24 +126,34 @@ class _mainmenuTabState extends State<mainmenuTab> {
 
             Padding(
               padding: EdgeInsets.only(left: 0, right: 0),
-              child: ProductDirectoryType1(title: 'featured'),
+              child: ProductDirectoryType1(title: 'featured', productList: featuredList,),
             ),
 
             Container(height: 20,),
 
-            Container(
-              height: 3 * (MediaQuery.of(context).size.height/2.5 + 20),
-              child: ListView.builder(
-                itemCount: 3,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(bottom: 20),
-                    child: ProductDirectoryType2(dataType: DataListType.listType[index]),
-                  );
-                },
-              ),
-            ),
+            ProductDirectoryType2(dataType: DataListType.listType[0], productList: product_list[0],),
+
+            Container(height: 20,),
+
+            ProductDirectoryType2(dataType: DataListType.listType[1], productList: product_list[1],),
+
+            Container(height: 20,),
+
+            ProductDirectoryType2(dataType: DataListType.listType[2], productList: product_list[2],),
+
+            // Container(
+            //   height: 3 * (MediaQuery.of(context).size.height/2.5 + 20),
+            //   child: ListView.builder(
+            //     itemCount: 3,
+            //     physics: NeverScrollableScrollPhysics(),
+            //     itemBuilder: (context, index) {
+            //       return Padding(
+            //         padding: EdgeInsets.only(bottom: 20),
+            //         child: ProductDirectoryType2(dataType: DataListType.listType[index], productList: product_list[index],),
+            //       );
+            //     },
+            //   ),
+            // ),
 
             Container(height: 20,),
 

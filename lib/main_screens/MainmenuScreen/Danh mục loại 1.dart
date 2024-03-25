@@ -11,7 +11,8 @@ import '../Before_entering/signin_screen.dart';
 
 class ProductDirectoryType1 extends StatefulWidget {
   final String title;
-  const ProductDirectoryType1({Key? key, required this.title}) : super(key: key);
+  final List<Product> productList;
+  const ProductDirectoryType1({Key? key, required this.title, required this.productList}) : super(key: key);
 
   @override
   State<ProductDirectoryType1> createState() => _ProductDirectoryType1State();
@@ -20,41 +21,25 @@ class ProductDirectoryType1 extends StatefulWidget {
 class _ProductDirectoryType1State extends State<ProductDirectoryType1> {
   int _currentIndex = 0;
   int _itemsPerPage = 2;
-  List<Product> productList = [];
+  // List<Product> productList = [];
 
-  void getFeaturedData() {
-    final reference = FirebaseDatabase.instance.reference();
-    reference.child("product").onValue.listen((event) {
-      final dynamic product = event.snapshot.value;
-      productList.clear();
-      product.forEach((key, value) {
-        Product setPro = Product.fromJson(value);
-        if (productList.length <= 8) {
-          productList.add(setPro);
-        }
-        // dataFlashSale.add(setPro);
-        // print(setPro.isSale.toString());
-        // if (setPro.isSale) {
-        //   dataFlashSale.add(setPro);
-        // }
-        setState(() {
+  // void getFeaturedData() {
+  //   final reference = FirebaseDatabase.instance.reference();
+  //   reference.child("product").onValue.listen((event) {
+  //     final dynamic product = event.snapshot.value;
+  //     productList.clear();
+  //     product.forEach((key, value) {
+  //       Product setPro = Product.fromJson(value);
+  //       if (productList.length <= 8) {
+  //         productList.add(setPro);
+  //       }
+  //       setState(() {
+  //
+  //       });
+  //     });
+  //   });
+  // }
 
-        });
-      });
-    });
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getFeaturedData();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +47,9 @@ class _ProductDirectoryType1State extends State<ProductDirectoryType1> {
     double width = MediaQuery.of(context).size.width;
     int startIndex = _currentIndex * _itemsPerPage;
     int endIndex = (_currentIndex + 1) * _itemsPerPage;
-    endIndex = endIndex > productList.length ? productList.length : endIndex;
+    endIndex = endIndex > widget.productList.length ? widget.productList.length : endIndex;
 
-    List<Product> currentPageItems = productList.sublist(startIndex, endIndex);
+    List<Product> currentPageItems = widget.productList.sublist(startIndex, endIndex);
 
     return Container(
       height: height,
@@ -138,7 +123,7 @@ class _ProductDirectoryType1State extends State<ProductDirectoryType1> {
                     bottom: height/14,
                     left: 5,
                     right: 5,
-                    child: productList.isNotEmpty ? SingleChildScrollView(
+                    child: widget.productList.isNotEmpty ? SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       //controller: _pageController,
                       child: Row(
@@ -158,7 +143,7 @@ class _ProductDirectoryType1State extends State<ProductDirectoryType1> {
                         ),
                         ).toList(),
                       ),
-                    ) : Container(alignment: Alignment.center, child: Text('Danh sách trống', style: TextStyle(color: Colors.grey),),),
+                    ) : Container(alignment: Alignment.center,child: Container(width: 30, height: 30, alignment: Alignment.center,child: CircularProgressIndicator(color: Colors.deepOrangeAccent,),),),
                   )
                 ],
               ),
@@ -243,7 +228,7 @@ class _ProductDirectoryType1State extends State<ProductDirectoryType1> {
                   // if (_currentIndex < (productList.length / _itemsPerPage).ceil() - 1) {
                   //   _pageController.animateToPage(_currentIndex + 1, duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
                   // }
-                  if ((_currentIndex + 1) * _itemsPerPage < productList.length) {
+                  if ((_currentIndex + 1) * _itemsPerPage < widget.productList.length) {
                     _currentIndex++;
                   }
                 });
