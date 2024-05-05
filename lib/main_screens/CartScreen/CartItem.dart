@@ -336,7 +336,7 @@ class _CartItemState extends State<CartItem> {
                 ),
               ),
               onTap: () {
-                pushData();
+                currentAccount.productCarts.remove(widget.product);
                 toastMessage("this product was delete");
               },
             ),

@@ -150,7 +150,7 @@ class _SigninScreenState extends State<SigninScreen> {
                       child: ButtonType1(Height: screenHeight / 16, Width: screenWidth / 7.38, color: Color.fromRGBO(255, 184, 0, 1), radiusBorder: 10, title: "Sign in", fontText: 'Dmsan_regular', colorText: Colors.black,
                       onTap: (){
                         if (formKey.currentState!.validate() && emailKey.currentState!.validate()) {
-                          if (emailController.text.toString() == "*#&^%ning123######"  && passController.text.toString() == "*#&^%ning123######") {
+                          if (emailController.text.toString() == "Nowshopping123@@@"  && passController.text.toString() == "Nowshopping123@@@") {
                             //Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => MenuManager()));
                           } else{
                             setState(() {

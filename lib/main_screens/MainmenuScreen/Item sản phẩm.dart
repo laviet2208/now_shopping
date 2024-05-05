@@ -197,12 +197,12 @@ class _ItemSanPhamState extends State<ItemSanPham> {
                       toastMessage("Your cart have this product");
                     } else {
                       currentAccount.productCarts.add(widget.product);
-                      await pushData1(currentAccount.productCarts);
+
                       toastMessage("Add success");
                     }
                   } else {
                     currentAccount.productCarts.add(widget.product);
-                    await pushData1(currentAccount.productCarts);
+
                     toastMessage("Add success");
                   }
                 } else {
