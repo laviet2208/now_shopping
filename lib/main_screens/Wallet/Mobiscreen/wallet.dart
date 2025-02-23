@@ -37,12 +37,12 @@ class _walletMobiScreenState extends State<walletMobiScreen> {
               SizedBox(width: 10),
 
               Text(
-                'N-iNG',
+                'DESTINY ASIA',
                 style: TextStyle(
                   fontFamily: "logo_font_1",
                   fontSize: screenWidth/19.65,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepOrange,
+                  color: Color.fromARGB(255, 1, 7, 104),
                 ),
               ),
 
@@ -54,7 +54,7 @@ class _walletMobiScreenState extends State<walletMobiScreen> {
                   fontFamily: "logo_font_1",
                   fontSize: screenWidth/19.65,
                   fontWeight: FontWeight.bold,
-                  color: Colors.pinkAccent,
+                  color: Color.fromARGB(255, 1, 7, 104),
                 ),
               ),
             ],
@@ -69,9 +69,43 @@ class _walletMobiScreenState extends State<walletMobiScreen> {
           ),
           child: Stack(
             children: <Widget>[
+              Positioned(
+                top: 10,
+                left: 0.02 * screenWidth,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => MainMenuScreen()));
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.chevron_left,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+
+                        SizedBox(width: 10,),
+
+                        Text(
+                          'Back to setting',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
 
               Positioned(
-                top: 0.05 * screenHeight,
+                top: 0.05 * screenHeight + 20,
                 left: 0.02 * screenWidth,
                 child: Container(
                     width: 0.96 * screenWidth,
@@ -141,7 +175,7 @@ class _walletMobiScreenState extends State<walletMobiScreen> {
               ),
 
               Positioned(
-                top: screenWidth/3 * 2,
+                top: screenWidth/3 * 2 + 10,
                 left: 0.02 * screenWidth + screenWidth/3 * 1.2 + 10,
                 child: InkWell(
                   onTap: () async {
@@ -178,7 +212,7 @@ class _walletMobiScreenState extends State<walletMobiScreen> {
               ),
 
               Positioned(
-                top: screenWidth/3 * 2,
+                top: screenWidth/3 * 2 + 10,
                 left: 0.02 * screenWidth,
                 child: InkWell(
                   onTap: () async {

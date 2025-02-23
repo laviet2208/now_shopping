@@ -46,7 +46,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // Figma Flutter Generator OrdersuccessWidget - FRAME
           Container(
               width: screenWidth,
               height: screenHeight,

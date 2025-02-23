@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_locales/flutter_locales.dart';
 import 'package:ning_web/main_screens/Before_entering/first_loading_screen.dart';
-
 import 'main_screens/MainmenuScreen/Data loại sản phẩm.dart';
+import 'package:firebase_admin/firebase_admin.dart';
 
 
 
@@ -23,6 +23,7 @@ Future<void> main() async
     //     measurementId: "G-4T6LP0BZYH"
     // )
   );
+
   DataListType.addType();
   await Locales.init(['en','vi','tw','ko','ja']);
   runApp(MyApp());

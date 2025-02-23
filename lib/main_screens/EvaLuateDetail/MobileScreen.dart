@@ -83,10 +83,10 @@ class _EvaluateDetailMobiState extends State<EvaluateDetailMobi> {
                     ),
                   ),
                   child: Text(
-                    "N-Ing Shop / All review",
+                    "Destiny Asia / All review",
                     style: TextStyle(
                         fontFamily: 'Dmsan_regular',
-                        color: Color(0xff3669c9),
+                        color: Color.fromARGB(255, 1, 7, 104),
                         fontSize: screenWidth/15,
                         fontWeight: FontWeight.bold
                     ),

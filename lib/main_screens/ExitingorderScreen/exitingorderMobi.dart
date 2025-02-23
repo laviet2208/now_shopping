@@ -61,12 +61,12 @@ class _ExitingorderMobiScreenState extends State<ExitingorderMobiScreen> {
               SizedBox(width: 10),
 
               Text(
-                'N-iNG',
+                'DESTINY USA',
                 style: TextStyle(
                   fontFamily: "logo_font_1",
                   fontSize: screenWidth/19.65,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepOrange,
+                  color: Color.fromARGB(255, 1, 7, 104),
                 ),
               ),
 
@@ -78,7 +78,7 @@ class _ExitingorderMobiScreenState extends State<ExitingorderMobiScreen> {
                   fontFamily: "logo_font_1",
                   fontSize: screenWidth/19.65,
                   fontWeight: FontWeight.bold,
-                  color: Colors.pinkAccent,
+                  color: Color.fromARGB(255, 1, 7, 104),
                 ),
               ),
             ],
@@ -93,12 +93,46 @@ class _ExitingorderMobiScreenState extends State<ExitingorderMobiScreen> {
           ),
           child: Stack(
             children: <Widget>[
+              Positioned(
+                top: 10,
+                left: 0.02 * screenWidth,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => MainMenuScreen()));
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.chevron_left,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+
+                        SizedBox(width: 10,),
+
+                        Text(
+                          'Back to setting',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
 
               Positioned(
-                top: 0.03*screenHeight,
+                top: 0.03*screenHeight + 20,
                 left: 0.02*screenWidth,
+                bottom: 20,
                 child: Container(
-                    height: screenHeight * 0.85,
                     width: screenWidth * 0.96,
                     decoration: BoxDecoration(
 

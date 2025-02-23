@@ -3,6 +3,7 @@ import 'package:flutter_locales/flutter_locales.dart';
 import 'package:ning_web/General/Tool/ChangeNumber.dart';
 
 import '../../Finalclass/finalclass.dart';
+import '../MainmenuScreen/mainmenu.dart';
 class viewAccMobi extends StatefulWidget {
   const viewAccMobi({Key? key}) : super(key: key);
 
@@ -34,12 +35,12 @@ class _viewAccMobiState extends State<viewAccMobi> {
             SizedBox(width: 10),
 
             Text(
-              'N-iNG',
+              'DESTINY ASIA',
               style: TextStyle(
                 fontFamily: "logo_font_1",
                 fontSize: screenWidth/19.65,
                 fontWeight: FontWeight.bold,
-                color: Colors.deepOrange,
+                color: Color.fromARGB(255, 1, 7, 104),
               ),
             ),
 
@@ -51,7 +52,7 @@ class _viewAccMobiState extends State<viewAccMobi> {
                 fontFamily: "logo_font_1",
                 fontSize: screenWidth/19.65,
                 fontWeight: FontWeight.bold,
-                color: Colors.pinkAccent,
+                color: Color.fromARGB(255, 1, 7, 104),
               ),
             ),
           ],
@@ -66,6 +67,39 @@ class _viewAccMobiState extends State<viewAccMobi> {
         ),
         child: ListView(
           children: [
+            Container(height: 20,),
+
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => MainMenuScreen()));
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.chevron_left,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+
+                    SizedBox(width: 10,),
+
+                    Text(
+                      'Back to setting',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
             Container(height: 20,),
 
             Padding(

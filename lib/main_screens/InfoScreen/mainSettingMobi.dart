@@ -39,7 +39,7 @@ class _settingMobiState extends State<settingMobi> {
         await pushChatRooms(room);
       } else {
         room = chatRoom(account: currentAccount, messengerList: []);
-        room.messengerList.add(messenger(type: 2, content: 'Xin chào, N-ing giúp gì được cho bạn'));
+        room.messengerList.add(messenger(type: 2, content: 'Xin chào, Destiny Asia giúp gì được cho bạn'));
         await pushChatRooms(room);
       }
     });

@@ -85,13 +85,13 @@ class _proDuctDetailScreenState extends State<proDuctDetailScreen> {
                               margin:  EdgeInsets.fromLTRB(0*fem, 50*fem, 33*fem, 19*fem),
 
                               child: Text(
-                                'N-ing Shop',
+                                'Destiny Asia',
                                 style: TextStyle (
                                   fontFamily: 'Dmsan_regular',
                                   fontSize: 80*ffem,
                                   height: 0.225*ffem/fem,
                                   decoration: TextDecoration.none,
-                                  color: Color(0xff3669c9),
+                                  color: Color.fromARGB(255, 1, 7, 104),
                                 ),
                               ),
                             ),

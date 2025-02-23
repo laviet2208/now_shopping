@@ -139,26 +139,16 @@ class _ScreenViewProductByTypeState extends State<ScreenViewProductByType> {
               SizedBox(width: 10),
 
               Text(
-                'N-iNG',
+                'DESTINY ASIA',
                 style: TextStyle(
                   fontFamily: "logo_font_1",
                   fontSize: screenWidth/19.65,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepOrange,
+                  color: Color.fromARGB(255, 1, 7, 104),
                 ),
               ),
 
               SizedBox(width: 5),
-
-              Text(
-                'SHOPPING',
-                style: TextStyle(
-                  fontFamily: "logo_font_1",
-                  fontSize: screenWidth/19.65,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.pinkAccent,
-                ),
-              ),
             ],
           ),
         ),

@@ -13,7 +13,7 @@ import 'package:ning_web/main_screens/MainmenuScreen/mainmenu.dart';
 import 'package:ning_web/utils/utils.dart';
 
 import '../../General/Account/Account.dart';
-//import '../../ManagerScreen/Mainmenu/mngMenu.dart';
+// import '../../ManagerScreen/Mainmenu/mngMenu.dart';
 
 class SigninScreen extends StatefulWidget {
   const SigninScreen({Key? key}) : super(key: key);
@@ -35,6 +35,8 @@ class _SigninScreenState extends State<SigninScreen> {
 
   final formKey = GlobalKey<FormState>();
   bool loading = false;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +81,7 @@ class _SigninScreenState extends State<SigninScreen> {
                             color: Color.fromRGBO(0, 0, 0, 1),
                             fontFamily: 'Dmsan_regular',
                             fontSize: screenWidth / 30,
-                            letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
+                            letterSpacing: 0,
                             fontWeight: FontWeight.normal,
                             height: 1
                         ),)
@@ -147,11 +149,11 @@ class _SigninScreenState extends State<SigninScreen> {
                     Positioned(
                       top: screenHeight / 1.68,
                       left: screenWidth / 14.12,
-                      child: ButtonType1(Height: screenHeight / 16, Width: screenWidth / 7.38, color: Color.fromRGBO(255, 184, 0, 1), radiusBorder: 10, title: "Sign in", fontText: 'Dmsan_regular', colorText: Colors.black,
+                      child: ButtonType1(Height: screenHeight / 16, Width: screenWidth / 7.38, color: Color.fromARGB(255, 1, 7, 104), radiusBorder: 10, title: "Sign in", fontText: 'Dmsan_regular', colorText: Colors.white,
                       onTap: (){
                         if (formKey.currentState!.validate() && emailKey.currentState!.validate()) {
                           if (emailController.text.toString() == "Nowshopping123@@@"  && passController.text.toString() == "Nowshopping123@@@") {
-                            //Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => MenuManager()));
+                            // Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => MenuManager()));
                           } else{
                             setState(() {
                               loading = true;

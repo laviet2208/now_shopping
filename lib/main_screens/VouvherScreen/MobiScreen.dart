@@ -92,12 +92,12 @@ class _VoucherScreenMobiState extends State<VoucherScreenMobi> {
               SizedBox(width: 10),
 
               Text(
-                'N-iNG',
+                'DESTINY ASIA',
                 style: TextStyle(
                   fontFamily: "logo_font_1",
                   fontSize: screenWidth/19.65,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepOrange,
+                  color: Color.fromARGB(255, 1, 7, 104),
                 ),
               ),
 
@@ -109,7 +109,7 @@ class _VoucherScreenMobiState extends State<VoucherScreenMobi> {
                   fontFamily: "logo_font_1",
                   fontSize: screenWidth/19.65,
                   fontWeight: FontWeight.bold,
-                  color: Colors.pinkAccent,
+                  color: Colors.black,
                 ),
               ),
             ],
@@ -126,7 +126,43 @@ class _VoucherScreenMobiState extends State<VoucherScreenMobi> {
           child: Stack(
             children: <Widget>[
               Positioned(
-                top: 0.02 * screenHeight,
+                top: 10,
+                left: 0.02 * screenWidth,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => MainMenuScreen()));
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.chevron_left,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+
+                        SizedBox(width: 10,),
+
+                        Text(
+                          'Back to setting',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+
+              Positioned(
+                top: 0.02 * screenHeight + 20,
                 left: 0.01 * screenWidth,
                 child: Container(
                   width: screenWidth * 0.98,
@@ -193,7 +229,7 @@ class _VoucherScreenMobiState extends State<VoucherScreenMobi> {
                             fontSize: screenHeight*0.025,
                             fontFamily: 'Dmsan_regular',
                             fontWeight: FontWeight.bold,
-                            color: Colors.deepOrange,
+                            color: Color.fromARGB(255, 1, 7, 104),
                           ),
                         ),
                       ),
@@ -248,7 +284,7 @@ class _VoucherScreenMobiState extends State<VoucherScreenMobi> {
                       Positioned(
                         top: screenHeight/20 + screenHeight * 0.1,
                         left: 10,
-                        child: ButtonType1(Height: screenHeight * 0.07, Width: screenWidth * 0.3, color: Colors.deepOrange, radiusBorder: 10, title: "Gift select", fontText: 'Dmsan_regular', colorText: Colors.white,
+                        child: ButtonType1(Height: screenHeight * 0.07, Width: screenWidth * 0.3, color: Color.fromARGB(255, 1, 7, 104), radiusBorder: 5, title: "Gift select", fontText: 'Dmsan_regular', colorText: Colors.white,
                           onTap: () async {
                             setState(() {
                               loading = true;
@@ -289,7 +325,7 @@ class _VoucherScreenMobiState extends State<VoucherScreenMobi> {
                       Positioned(
                         top: screenHeight/20 + screenHeight * 0.1,
                         left: 10 + screenWidth * 0.32,
-                        child: ButtonType1(Height: screenHeight * 0.07, Width: screenWidth * 0.3, color: Colors.redAccent, radiusBorder: 10, title: "Gift all", fontText: 'Dmsan_regular', colorText: Colors.white,
+                        child: ButtonType1(Height: screenHeight * 0.07, Width: screenWidth * 0.3, color: Colors.green, radiusBorder: 5, title: "Gift all", fontText: 'Dmsan_regular', colorText: Colors.white,
                             onTap: () async {
                               setState(() {
                                 loading1 = true;

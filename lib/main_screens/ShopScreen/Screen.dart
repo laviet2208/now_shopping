@@ -103,13 +103,13 @@ class _ShopScreenState extends State<ShopScreen> {
                   ),
                 ),
                 child: Text(
-                  "  N-ing Shop  |  Shop view",
+                  "  Destiny Asia  |  Shop view",
                   style: TextStyle(
                     fontFamily: 'Dmsan_regular',
                     fontSize: 60*ffem,
                     height: 0.225*ffem/fem,
                     decoration: TextDecoration.none,
-                    color: Color(0xff3669c9),
+                    color: Color.fromARGB(255, 1, 7, 104),
                   ),
                 ),
               ),

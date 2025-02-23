@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: MediaQuery.of(context).size.height * 0.08,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xfff54b7e),
+                    backgroundColor: Color.fromARGB(255, 1, 7, 104),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => SignUpScreen()));
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     'Sign up',
                     style: TextStyle(
                       fontFamily: 'Dmsan_regular',
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: MediaQuery.of(context).size.height * 0.02,
                     ),
                   ),
@@ -69,22 +69,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.02),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xffffb700),
+                    backgroundColor: Colors.white,
+                    side: BorderSide(
+                      color: Color.fromARGB(255, 1, 7, 104),
+                      width: 2,
+                    ),
                   ),
-
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => SigninScreen()),
                     );
                   },
-
-
                   child: Text(
                     'Sign in',
                     style: TextStyle(
                       fontFamily: 'Dmsan_regular',
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 1, 7, 104),
                       fontSize: MediaQuery.of(context).size.height * 0.02,
                     ),
                   ),

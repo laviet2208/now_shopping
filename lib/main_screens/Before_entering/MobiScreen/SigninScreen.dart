@@ -81,13 +81,34 @@ class _SigninMobiState extends State<SigninMobi> {
 
                           Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: Text(
-                              'WELCOME BACK TO NING',
-                              style: TextStyle(
-                                fontFamily: 'logo_font_1',
-                                fontSize: 24,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold
+                            // child: Text(
+                            //   'WELCOME BACK TO DESTINY ASIA',
+                            //   style: TextStyle(
+                            //     fontFamily: 'logo_font_1',
+                            //     fontSize: 24,
+                            //     color: Colors.black,
+                            //     fontWeight: FontWeight.bold
+                            //   ),
+                            // ),
+                            child: RichText(
+                              text: TextSpan(
+                                style: TextStyle (
+                                  fontFamily: 'logo_font_1',
+                                  fontSize: 24,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'WELCOME BACK TO\n',
+                                  ),
+                                  TextSpan(
+                                    text: 'DESTINY ASIA',
+                                    style: TextStyle(
+                                      color: Color.fromARGB(255, 1, 7, 104),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -211,24 +232,24 @@ class _SigninMobiState extends State<SigninMobi> {
                             ),
                           ),
 
-                          Container(height: 15,),
-
-                          Padding(
-                              padding: EdgeInsets.only(right: 10),
-                              child: Text('Forgot Password ?', textAlign: TextAlign.right, style: TextStyle(
-                                  color: Color.fromRGBO(0, 99, 255, 1),
-                                  fontFamily: 'DM Sans',
-                                  fontSize: screenWidth / 28,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1
-                              ),)
-                          ),
+                          // Container(height: 15,),
+                          //
+                          // Padding(
+                          //     padding: EdgeInsets.only(right: 10),
+                          //     child: Text('Forgot Password ?', textAlign: TextAlign.right, style: TextStyle(
+                          //         color: Color.fromRGBO(0, 99, 255, 1),
+                          //         fontFamily: 'DM Sans',
+                          //         fontSize: screenWidth / 28,
+                          //         fontWeight: FontWeight.normal,
+                          //         height: 1
+                          //     ),)
+                          // ),
 
                           Container(height: 50,),
 
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
-                            child: ButtonType1(Height: 60 , Width: screenWidth * 0.8, color: Color.fromARGB(255, 54, 105, 201), radiusBorder: 10, title: "Sign in", fontText: 'Dmsan_regular', colorText: Colors.white,
+                            child: GestureDetector(
                               onTap: (){
                                 if (formKey.currentState!.validate() && emailKey.currentState!.validate()) {
                                   setState(() {
@@ -250,19 +271,54 @@ class _SigninMobiState extends State<SigninMobi> {
                                   });
                                 }
                               },
-                              loading: loading,
+                              child: Container(
+                                height: 55,
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 1, 7, 104),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'Sign in',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontFamily: 'DM Sans',
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
 
                           Container(height: 20,),
 
-
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
-                            child: ButtonType1(Height: 60 , Width: screenWidth * 0.418, color: Colors.pinkAccent, radiusBorder: 10, title: "Sign up", fontText: 'Dmsan_regular', colorText: Colors.white,
+                            child: GestureDetector(
                               onTap: (){
                                 Navigator.pushReplacement(context, MaterialPageRoute(builder:(context) => SignUpScreen()));
                               },
+                              child: Container(
+                                height: 55,
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  borderRadius: BorderRadius.circular(4),
+                                  border: Border.all(
+                                    width: 2,
+                                    color: Color.fromARGB(255, 1, 7, 104),
+                                  ),
+                                ),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'Sign up',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 1, 7, 104),
+                                    fontSize: 14,
+                                    fontFamily: 'DM Sans',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ],

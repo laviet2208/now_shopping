@@ -46,7 +46,7 @@ class _FirstLoadState extends State<FirstLoad> {
                 height: MediaQuery.of(context).size.height * 0.05,
                 child: CircularProgressIndicator(
                   value: null,
-                  color: Color(0xfff54b7e),
+                  color: Color.fromARGB(255, 1, 7, 104),
                 ),
               ),
             ],

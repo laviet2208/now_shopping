@@ -46,13 +46,13 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ),
                 child: Text(
-                  "  N-ing Shop  |  My Product Cart",
+                  "  Destiny Asia |  My Product Cart",
                   style: TextStyle(
                     fontFamily: 'Dmsan_regular',
                     fontSize: 60*ffem,
                     height: 0.225*ffem/fem,
                     decoration: TextDecoration.none,
-                    color: Color(0xff3669c9),
+                    color: Color.fromARGB(255, 1, 7, 104),
                   ),
                 ),
               ),

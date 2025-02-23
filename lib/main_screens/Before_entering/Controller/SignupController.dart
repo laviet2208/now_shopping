@@ -12,6 +12,7 @@ class SignupController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController repasswordController = TextEditingController();
+  TextEditingController signupCodeController = TextEditingController();
   late BuildContext context;
   bool loading = false;
   FirebaseAuth auth = FirebaseAuth.instance;

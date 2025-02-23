@@ -77,7 +77,7 @@ class _ScreenmainpcState extends State<Screenmainpc> {
                               ),
                               alignment: Alignment.center,
                               child: Text(
-                                'NOW SHOPPING',
+                                'Destiny Asia',
                                 style: TextStyle(
                                     fontWeight: FontWeight.normal,
                                     fontFamily: 'logo_font_1',

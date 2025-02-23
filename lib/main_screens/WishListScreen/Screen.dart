@@ -48,7 +48,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                   ),
                 ),
                 child: Text(
-                  "  N-ing Shop  |  My Favorite Products",
+                  "  Destiny Asia  |  My Favorite Products",
                   style: TextStyle(
                     fontFamily: 'Dmsan_regular',
                     fontSize: 60*ffem,

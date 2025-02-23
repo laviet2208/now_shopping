@@ -143,7 +143,7 @@ class _ScreenwaitpcState extends State<Screenwaitpc> {
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          'NOW SHOPPING',
+                          'DESTINY ASIA',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontFamily: 'logo_font_1',
@@ -190,7 +190,7 @@ class _ScreenwaitpcState extends State<Screenwaitpc> {
 
                                         ),
                                         child: Text(
-                                          '   Đăng nhập N-ING',
+                                          '   Đăng nhập Destiny Asia',
                                           style: TextStyle(
                                               fontFamily: 'arial',
                                               fontSize: screenWidth/90,

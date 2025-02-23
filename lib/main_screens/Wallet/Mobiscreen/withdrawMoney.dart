@@ -47,12 +47,12 @@ class _withdrawMobileState extends State<withdrawMobile> {
             SizedBox(width: 10),
 
             Text(
-              'N-iNG',
+              'Destiny Asia',
               style: TextStyle(
                 fontFamily: "logo_font_1",
                 fontSize: screenWidth/19.65,
                 fontWeight: FontWeight.bold,
-                color: Colors.deepOrange,
+                color: Color.fromARGB(255, 1, 7, 104),
               ),
             ),
 
