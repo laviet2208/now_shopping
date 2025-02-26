@@ -31,25 +31,25 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  firebase_core: ^2.10.0
-  firebase_auth: ^4.4.2
-  firebase_database: ^10.1.1
-  firebase_storage: ^11.1.1
+  firebase_core: ^3.9.0
+  firebase_auth: ^5.3.4
+  firebase_database: ^11.3.4
+  firebase_storage: ^12.4.4
   fluttertoast: ^8.2.1
   auto_size_text: ^3.0.0
   webview_flutter: ^4.2.0
   url_launcher: ^6.1.10
   responsive_builder: 0.7.1
   google_nav_bar: ^5.0.6
-  flutter_locales: ^2.0.2
-  firebase_admin: ^0.2.0
+  flutter_locales: ^3.0.4
+  firebase_admin: ^0.3.0+1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 
 flutter:
