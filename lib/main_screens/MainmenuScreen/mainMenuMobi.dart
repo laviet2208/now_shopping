@@ -26,11 +26,11 @@ class _MainmenuMobiState extends State<MainmenuMobi> {
   List<Product> dataFearture = [];
   List<Product> dataFlashSale = [];
   List<Product> dataFiveStar = [];
-  final databaseReference = FirebaseDatabase.instance.reference();
+  final databaseReference = FirebaseDatabase.instance.ref();
   int selectedIndex = 0; // Giá trị mặc định là 0
 
   void getFeaturedData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       dataFearture.clear();

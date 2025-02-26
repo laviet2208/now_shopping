@@ -44,7 +44,7 @@ class _SCREENpaymentState extends State<SCREENpayment> {
     }
 
     Future<void> pushData1(List<voucher> voucherList) async {
-      final reference = FirebaseDatabase.instance.reference();
+      final reference = FirebaseDatabase.instance.ref();
       // Cập nhật voucherList
       await reference.child("Account/" + currentAccount.id + "/voucherList").remove();
       for (int i = 0 ; i < voucherList.length ; i++) {
@@ -53,12 +53,12 @@ class _SCREENpaymentState extends State<SCREENpayment> {
     }
 
     Future<void> pushMonmey() async {
-      final reference = FirebaseDatabase.instance.reference();
+      final reference = FirebaseDatabase.instance.ref();
       await reference.child("Account/" + currentAccount.id + "/total_money").set(currentAccount.totalMoney);
     }
 
     Future<void> pushBill(cartBill bill) async {
-      final reference = FirebaseDatabase.instance.reference();
+      final reference = FirebaseDatabase.instance.ref();
       await reference.child("cartBill/" + bill.ID).set(bill.toJson());
     }
 

@@ -17,7 +17,7 @@ class _viewallproductState extends State<viewallproduct> {
   List<Product> data = [];
 
   void getFeaturedData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       data.clear();

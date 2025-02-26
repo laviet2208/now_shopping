@@ -17,7 +17,7 @@ class itemOrderHisMobi extends StatefulWidget {
 
 class _itemOrderHisMobiState extends State<itemOrderHisMobi> {
   Future<void> pushdata(String status) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     await reference.child("cartBill/" + widget.cartbill.ID + "/status").set(status);
   }
 

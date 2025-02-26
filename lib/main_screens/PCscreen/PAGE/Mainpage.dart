@@ -42,7 +42,7 @@ class _MainpageState extends State<Mainpage> {
   String ads2text = "...";
 
   void getADSdata1() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("ads/0").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       ad1 = product.toString();
@@ -53,7 +53,7 @@ class _MainpageState extends State<Mainpage> {
   }
 
   void getADSdata2() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("ads/1").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       ad2 = product.toString();
@@ -64,7 +64,7 @@ class _MainpageState extends State<Mainpage> {
   }
 
   void getADSdata3() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("ads/2").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       ad3 = product.toString();
@@ -75,7 +75,7 @@ class _MainpageState extends State<Mainpage> {
   }
 
   void getFeaturedData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       dataFearture.clear();

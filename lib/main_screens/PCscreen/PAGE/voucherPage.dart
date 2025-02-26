@@ -25,7 +25,7 @@ class _voucherPageState extends State<voucherPage> {
   bool loading1 = false;
 
   Future<void> getNNData(String email) async{
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     DatabaseEvent dataSnapshot = await reference.child("Account").once();
     final dynamic account = dataSnapshot.snapshot.value;
     account.forEach((key, value) {
@@ -38,7 +38,7 @@ class _voucherPageState extends State<voucherPage> {
   }
 
   Future<void> pushData(String email, List<voucher> voucherList) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     // Cập nhật voucherList
     await reference.child("Account/" + idRece + "/voucherList").remove();
     for (int i = 0 ; i < voucherList.length ; i++) {
@@ -49,7 +49,7 @@ class _voucherPageState extends State<voucherPage> {
   }
 
   Future<void> pushData1(List<voucher> voucherList) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     // Cập nhật voucherList
     await reference.child("Account/" + currentAccount.id + "/voucherList").remove();
     for (int i = 0 ; i < voucherList.length ; i++) {
@@ -62,7 +62,7 @@ class _voucherPageState extends State<voucherPage> {
 
 
   Future<bool> checkEmailExists(String email) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     final dataSnapshot = await reference.child("Account").orderByChild("username").equalTo(email).once();
     return dataSnapshot.snapshot.value != null;
   }
@@ -70,7 +70,7 @@ class _voucherPageState extends State<voucherPage> {
 
   final emailController = TextEditingController();
   final emailKey = GlobalKey<FormState>();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

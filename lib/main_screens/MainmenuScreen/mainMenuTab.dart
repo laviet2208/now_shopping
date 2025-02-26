@@ -25,7 +25,7 @@ class _mainmenuTabState extends State<mainmenuTab> {
   List<List<Product>> product_list = [];
 
   void getADSdata() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("ads").once().then((DatabaseEvent event) {
       adsList.clear();
       final dynamic product = event.snapshot.value;
@@ -39,7 +39,7 @@ class _mainmenuTabState extends State<mainmenuTab> {
   }
 
   void getproductData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").limitToFirst(10).once().then((DatabaseEvent event) {
       final dynamic product = event.snapshot.value;
       featuredList.clear();

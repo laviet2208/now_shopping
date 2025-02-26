@@ -21,7 +21,7 @@ class _ScreenViewProductByTypeState extends State<ScreenViewProductByType> {
   List<Product> productList = [];
 
   void getFeaturedData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       productList.clear();

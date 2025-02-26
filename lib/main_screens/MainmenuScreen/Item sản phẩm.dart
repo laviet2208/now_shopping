@@ -17,7 +17,7 @@ class ItemSanPham extends StatefulWidget {
 
 class _ItemSanPhamState extends State<ItemSanPham> {
   Future<void> pushData1(List<Product> productList) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     for (int i = 0 ; i < productList.length ; i++) {
       await reference.child("Account/" + currentAccount.id + "/productCarts/" + i.toString()).set(productList[i].toJson());
     }
@@ -27,7 +27,7 @@ class _ItemSanPhamState extends State<ItemSanPham> {
   }
 
   Future<void> pushData2(List<Product> productList) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     for (int i = 0 ; i < productList.length ; i++) {
       await reference.child("Account/" + currentAccount.id + "/wishList/" + i.toString()).set(productList[i].toJson());
     }

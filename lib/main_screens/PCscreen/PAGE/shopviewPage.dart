@@ -19,7 +19,7 @@ class _shopviewPageState extends State<shopviewPage> {
   List<Product> shopProduct = [];
 
   void getData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       shopProduct.clear();

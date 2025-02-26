@@ -23,7 +23,7 @@ class _withdrawMobileState extends State<withdrawMobile> {
   TextEditingController money = TextEditingController();
 
   Future<void> pushData(withDrawBill bill) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     await reference.child("withdraw/" + bill.ID).set(bill.toJson());
   }
 

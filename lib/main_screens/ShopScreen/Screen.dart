@@ -22,7 +22,7 @@ class _ShopScreenState extends State<ShopScreen> {
   String rate = "0.0 Star Rate";
 
   void getData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").onValue.listen((event) {
       final Object? product = event.snapshot.value;
       Map<String, dynamic> product1 = product as Map<String, dynamic>;

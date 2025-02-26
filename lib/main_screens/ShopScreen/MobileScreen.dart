@@ -22,7 +22,7 @@ class _MobiShopScreenState extends State<MobiShopScreen> {
   String rate = "0.0 Star Rate";
 
   void getData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       shopProduct.clear();

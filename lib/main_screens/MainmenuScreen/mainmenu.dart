@@ -25,10 +25,10 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
   List<Product> dataFearture = [];
   List<Product> dataFlashSale = [];
   List<Product> dataFiveStar = [];
-  final databaseReference = FirebaseDatabase.instance.reference();
+  final databaseReference = FirebaseDatabase.instance.ref();
 
   void getFeaturedData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").onValue.listen((event) {
       final dynamic product = event.snapshot.value;
       if (product != null && product is Map<String, dynamic>) {

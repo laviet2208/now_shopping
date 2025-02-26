@@ -31,7 +31,7 @@ class _settingMobiState extends State<settingMobi> {
   bool haveNotice = false;
   chatRoom room = chatRoom(account: currentAccount, messengerList: []);
   Future<void> getChatRoom() async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     await reference.child("Chatrooms").child(currentAccount.id).onValue.listen((event) async {
       final dynamic Chatrooms = event.snapshot.value;
       if(Chatrooms != null) {
@@ -46,7 +46,7 @@ class _settingMobiState extends State<settingMobi> {
   }
 
   void getRoom() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("Chatrooms").child(currentAccount.id).onValue.listen((event) async {
       final dynamic Chatrooms = event.snapshot.value;
       if(Chatrooms != null) {
@@ -69,7 +69,7 @@ class _settingMobiState extends State<settingMobi> {
   }
 
   Future<void> pushChatRooms(chatRoom room) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     await reference.child("Chatrooms").child(currentAccount.id).set(room.toJson());
   }
 

@@ -5,7 +5,7 @@ import '../../../General/Account/Account.dart';
 
 class LoginController {
   static void getAccountData(String email) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("Account").onValue.listen((event) {
       final dynamic account = event.snapshot.value;
       account.forEach((key, value) {

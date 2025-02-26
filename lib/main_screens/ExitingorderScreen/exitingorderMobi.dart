@@ -17,7 +17,7 @@ class _ExitingorderMobiScreenState extends State<ExitingorderMobiScreen> {
   List<cartBill> data = [];
 
   void getData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("cartBill").onValue.listen((event) {
       final dynamic bill = event.snapshot.value;
       print(bill.toString());

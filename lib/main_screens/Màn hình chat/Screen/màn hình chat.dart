@@ -19,7 +19,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
   chatRoom room = chatRoom(account: currentAccount, messengerList: []);
   bool Loading = false;
   void getChatRoom() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("Chatrooms").child(currentAccount.id).onValue.listen((event) async {
       final dynamic Chatrooms = event.snapshot.value;
       if(Chatrooms != null) {
@@ -39,7 +39,7 @@ class _chatRoomScreenState extends State<chatRoomScreen> {
   }
 
   Future<void> pushChatRooms(chatRoom room) async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     await reference.child("Chatrooms").child(currentAccount.id).set(room.toJson());
   }
 

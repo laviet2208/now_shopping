@@ -31,7 +31,7 @@ class _ScreenwaitState extends State<Screenwait> {
   List<List<Product>> product_list = [];
 
   void getADSdata() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("ads").onValue.listen((event) {
       adsList.clear();
       final dynamic product = event.snapshot.value;
@@ -45,7 +45,7 @@ class _ScreenwaitState extends State<Screenwait> {
   }
 
   void getproductData() {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     reference.child("product").limitToFirst(20).once().then((DatabaseEvent event) {
       final dynamic product = event.snapshot.value;
       featuredList.clear();

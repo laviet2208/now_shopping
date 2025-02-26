@@ -23,7 +23,7 @@ class _ProductCartState extends State<ProductCartPC> {
   int number = 0;
 
   Future<void> pushData() async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     List<Product> productlist = currentAccount.productCarts;
     // Cập nhật productList
     productlist.remove(widget.product);

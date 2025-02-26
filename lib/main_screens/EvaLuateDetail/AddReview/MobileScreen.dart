@@ -24,7 +24,7 @@ class _AddreviewMobiState extends State<AddreviewMobi> {
   TextEditingController content = TextEditingController();
 
   Future<void> pushData() async {
-    final reference = FirebaseDatabase.instance.reference();
+    final reference = FirebaseDatabase.instance.ref();
     // Cập nhật voucherList
     for (int i = 0 ; i < widget.product.evaluateList.length ; i++) {
       await reference.child("product/" + widget.product.id + "/evaluateList/" + i.toString()).set(widget.product.evaluateList[i].toJson());
